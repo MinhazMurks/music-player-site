@@ -1,12 +1,14 @@
-import {TopBar} from "../TopBar";
+import { TopBar } from "../TopBar";
+import { useState } from "react";
 
 function Home() {
-    return(
-        <div>
-            <TopBar></TopBar>
-        </div>
-    );
+  const [searchTerm, setSearchTerm] = useState("");
+
+  return (
+    <div>
+      <TopBar></TopBar>
+    </div>
+  );
 }
 
-
-export default Home
+export default Home;

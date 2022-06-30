@@ -1,11 +1,5 @@
-
-
 function Feed(props: any) {
-    return(
-        <div>
-
-        </div>
-    )
+  return <div></div>;
 }
 
-export default Feed
+export default Feed;

@@ -1,4 +1,7 @@
 .topBar {
-    background: rebeccapurple;
-    height: 6vh;
+  display: flex;
+  background: #1a1a1a;
+  height: 6vh;
+  justify-content: center;
+  align-items: center;
 }
