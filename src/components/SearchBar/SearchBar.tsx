@@ -1,13 +1,18 @@
-function SearchBar(props: any) {
+import { useContext } from "react";
+import { SearchTermContext } from "../Home/SearchTermContext";
+
+function SearchBar() {
+  const search = useContext(SearchTermContext);
+
   return (
     <div>
       <input
         type="text"
         placeholder="Search..."
         onChange={(event) => {
-          props.onChange(event);
+          search.setSearchTerm(event.target.value);
         }}
-        value={props.searchTerm}
+        value={search.searchTerm}
       />
       <button>Search</button>
     </div>
