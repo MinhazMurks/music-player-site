@@ -2,6 +2,6 @@
   display: flex;
   background: #1a1a1a;
   height: 6vh;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }

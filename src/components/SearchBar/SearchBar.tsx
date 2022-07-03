@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { SearchTermContext } from "../Home/SearchTermContext";
 
 function SearchBar() {
-  const search = useContext(SearchTermContext);
+  const searchContext = useContext(SearchTermContext);
 
   return (
     <div>
@@ -10,9 +10,9 @@ function SearchBar() {
         type="text"
         placeholder="Search..."
         onChange={(event) => {
-          search.setSearchTerm(event.target.value);
+          searchContext.setSearchTerm(event.target.value);
         }}
-        value={search.searchTerm}
+        value={searchContext.searchTerm}
       />
       <button>Search</button>
     </div>

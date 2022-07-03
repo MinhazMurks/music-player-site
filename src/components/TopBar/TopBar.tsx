@@ -1,14 +1,13 @@
 import "./TopBar.css";
 import { SearchBar } from "../SearchBar";
+import { Login } from "../Login";
 
-/*
-stupid
- @props awesome
- */
 function TopBar() {
   return (
     <div className="topBar">
+      <div></div>
       <SearchBar />
+      <Login />
     </div>
   );
 }
