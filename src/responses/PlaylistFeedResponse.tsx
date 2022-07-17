@@ -1,5 +1,5 @@
 export type PlaylistFeedResponse = {
-  feed: Playlist[];
+  playlists: Playlist[];
 };
 
 export type Playlist = {

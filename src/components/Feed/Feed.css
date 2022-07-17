@@ -1,8 +1,35 @@
 .feedContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+
 }
 
-.feedItem {
+.artistFeedContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.artistFeedItem {
+    width: 100%;
+}
+
+.playlistFeedContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.playlistFeedItem {
+    width: 100%;
+}
+
+.albumFeedContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.albumFeedItem {
     width: 100%;
 }
