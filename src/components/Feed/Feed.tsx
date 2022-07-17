@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import env from "react-dotenv";
-import { FeedItem, FeedResponse } from "../../responses/FeedResponse";
+import {
+  Playlist,
+  PlaylistFeedResponse,
+} from "../../responses/PlaylistFeedResponse";
 
 function Feed() {
-  const [feed, setFeed] = useState<FeedItem[]>([]);
+  const [feed, setFeed] = useState<Playlist[]>([]);
 
   const fetchFeed = () => {
     const requestOptions: RequestInit = {
@@ -13,12 +16,12 @@ function Feed() {
       },
     };
 
-    fetch(`${env.MUSIC_PLAYER_SERVER_URL}feed`, requestOptions)
+    fetch(`${env.MUSIC_PLAYER_SERVER_URL}/playlist/feed`, requestOptions)
       .then((response) => {
         console.log(response);
         return response.json();
       })
-      .then((result: FeedResponse) => {
+      .then((result: PlaylistFeedResponse) => {
         console.log(result);
         setFeed(result.feed);
       })

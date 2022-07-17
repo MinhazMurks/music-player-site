@@ -1,0 +1,8 @@
+.feedContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.feedItem {
+    width: 100%;
+}
