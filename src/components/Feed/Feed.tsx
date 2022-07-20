@@ -13,6 +13,11 @@ function Feed() {
   const [playlistFeed, setPlaylistFeed] = useState<Playlist[]>([]);
   const [albumFeed, setAlbumFeed] = useState<Album[]>([]);
 
+  const defaultBackgroundImage = "/images/background-gradient.webp";
+  const defaultBackgroundStyle = {
+    backgroundImage: `url(${defaultBackgroundImage})`,
+  };
+
   useEffect(() => {
     const fetchArtistFeed = async () => {
       const requestOptions: RequestInit = {
@@ -91,16 +96,36 @@ function Feed() {
     fetchAlbumFeed().then();
   }, []);
 
+  const findImage = (artImageLink: string, defaultImageLink: string) => {
+    if (artImageLink && artImageLink !== "") {
+      console.log("RETURNING OTHER");
+      return artImageLink;
+    }
+    console.log("RETURNING DEFAULT");
+    return defaultImageLink;
+  };
+
   const renderArtistFeed = () => {
     if (artistFeed) {
+      const defaultArtistImage = "/images/artist-placeholder.webp";
       return (
         <div className="feedRow">
           <span>Recommended Artists</span>
           <div className="feedItemsContainer">
             {artistFeed.map((feedItem, index) => {
               return (
-                <div className="feedItem" key={index}>
-                  {feedItem.name}
+                <div
+                  className="feedItem"
+                  key={index}
+                  style={defaultBackgroundStyle}
+                >
+                  <div className="cardImage">
+                    <img
+                      src={findImage(feedItem.art, defaultArtistImage)}
+                      alt="artist"
+                    />
+                  </div>
+                  <span>{feedItem.name}</span>
                 </div>
               );
             })}
@@ -112,14 +137,25 @@ function Feed() {
 
   const renderPlaylistFeed = () => {
     if (playlistFeed) {
+      const defaultPlaylistImage = "/images/playlist-placeholder.webp";
       return (
         <div className="feedRow">
           <span>Recommended Playlists</span>
           <div className="feedItemsContainer">
             {playlistFeed.map((feedItem, index) => {
               return (
-                <div className="feedItem" key={index}>
-                  {feedItem.name}
+                <div
+                  className="feedItem"
+                  key={index}
+                  style={defaultBackgroundStyle}
+                >
+                  <div className="cardImage">
+                    <img
+                      src={findImage(feedItem.art, defaultPlaylistImage)}
+                      alt="playlist"
+                    />
+                  </div>
+                  <span>{feedItem.name}</span>
                 </div>
               );
             })}
@@ -131,14 +167,25 @@ function Feed() {
 
   const renderAlbumFeed = () => {
     if (albumFeed) {
+      const defaultAlbumImage = "/images/album-placeholder.webp";
       return (
         <div className="feedRow">
           <span>Recommended Albums</span>
           <div className="feedItemsContainer">
             {albumFeed.map((feedItem, index) => {
               return (
-                <div className="feedItem" key={index}>
-                  {feedItem.name}
+                <div
+                  className="feedItem"
+                  key={index}
+                  style={defaultBackgroundStyle}
+                >
+                  <div className="cardImage">
+                    <img
+                      src={findImage(feedItem.art, defaultAlbumImage)}
+                      alt="album"
+                    />
+                  </div>
+                  <span>{feedItem.name}</span>
                 </div>
               );
             })}

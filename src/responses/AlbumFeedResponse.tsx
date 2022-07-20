@@ -9,6 +9,7 @@ export type Album = {
   artistUUID: string;
   artist: Artist | null;
   name: string;
+  art: string;
   tags: string[];
   songs: AlbumSong[] | null;
 };

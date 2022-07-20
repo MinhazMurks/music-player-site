@@ -6,4 +6,5 @@ export type Artist = {
   id: string;
   musicUserUUID: string;
   name: string;
+  art: string;
 };
