@@ -94,14 +94,17 @@ function Feed() {
   const renderArtistFeed = () => {
     if (artistFeed) {
       return (
-        <div className="artistFeedContainer">
-          {artistFeed.map((feedItem, index) => {
-            return (
-              <div className="artistFeedItem" key={index}>
-                {feedItem.name}
-              </div>
-            );
-          })}
+        <div className="feedRow">
+          <span>Recommended Artists</span>
+          <div className="feedItemsContainer">
+            {artistFeed.map((feedItem, index) => {
+              return (
+                <div className="feedItem" key={index}>
+                  {feedItem.name}
+                </div>
+              );
+            })}
+          </div>
         </div>
       );
     }
@@ -110,14 +113,17 @@ function Feed() {
   const renderPlaylistFeed = () => {
     if (playlistFeed) {
       return (
-        <div className="playlistFeedContainer">
-          {playlistFeed.map((feedItem, index) => {
-            return (
-              <div className="playlistFeedItem" key={index}>
-                {feedItem.name}
-              </div>
-            );
-          })}
+        <div className="feedRow">
+          <span>Recommended Playlists</span>
+          <div className="feedItemsContainer">
+            {playlistFeed.map((feedItem, index) => {
+              return (
+                <div className="feedItem" key={index}>
+                  {feedItem.name}
+                </div>
+              );
+            })}
+          </div>
         </div>
       );
     }
@@ -126,14 +132,17 @@ function Feed() {
   const renderAlbumFeed = () => {
     if (albumFeed) {
       return (
-        <div className="albumFeedContainer">
-          {albumFeed.map((feedItem, index) => {
-            return (
-              <div className="albumFeedItem" key={index}>
-                {feedItem.name}
-              </div>
-            );
-          })}
+        <div className="feedRow">
+          <span>Recommended Albums</span>
+          <div className="feedItemsContainer">
+            {albumFeed.map((feedItem, index) => {
+              return (
+                <div className="feedItem" key={index}>
+                  {feedItem.name}
+                </div>
+              );
+            })}
+          </div>
         </div>
       );
     }

@@ -4,32 +4,43 @@
 
 }
 
-.artistFeedContainer {
+.feedRow {
+    padding: 10px;
+}
+
+.feedItemsContainer {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     width: 100%;
 }
 
-.artistFeedItem {
-    width: 100%;
+.feedItem {
+    margin: 5px;
+    padding: 5px;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    background: #d5d5d5;
 }
 
 .playlistFeedContainer {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     width: 100%;
 }
 
 .playlistFeedItem {
-    width: 100%;
 }
 
 .albumFeedContainer {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     width: 100%;
 }
 
 .albumFeedItem {
-    width: 100%;
 }
