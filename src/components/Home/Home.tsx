@@ -1,3 +1,4 @@
+import "./Home.css";
 import { TopBar } from "../TopBar";
 import { useState } from "react";
 import { SearchTermContext } from "./SearchTermContext";
@@ -31,8 +32,10 @@ function Home() {
     <div>
       <SearchTermContext.Provider value={searchTermProviderValue}>
         <LoginContext.Provider value={logInProviderValue}>
-          <TopBar></TopBar>
-          <Feed></Feed>
+          <div className="homeContainer">
+            <TopBar></TopBar>
+            <Feed></Feed>
+          </div>
         </LoginContext.Provider>
       </SearchTermContext.Provider>
     </div>
