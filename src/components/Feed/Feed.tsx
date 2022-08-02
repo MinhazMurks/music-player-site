@@ -7,11 +7,13 @@ import {
 } from "../../responses/PlaylistFeedResponse";
 import { Album, AlbumFeedResponse } from "../../responses/AlbumFeedResponse";
 import { Artist, ArtistFeedResponse } from "../../responses/ArtistFeedResponse";
+import { Song, SongFeedResponse } from "../../responses/SongFeedResponse";
 
 function Feed() {
   const [artistFeed, setArtistFeed] = useState<Artist[]>([]);
   const [playlistFeed, setPlaylistFeed] = useState<Playlist[]>([]);
   const [albumFeed, setAlbumFeed] = useState<Album[]>([]);
+  const [songFeed, setSongFeed] = useState<Song[]>([]);
 
   const defaultBackgroundImage = "/images/background-gradient.webp";
   const defaultBackgroundStyle = {
@@ -91,9 +93,34 @@ function Feed() {
       }
     };
 
+    const fetchSongFeed = async () => {
+      const requestOptions: RequestInit = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      try {
+        const response = await fetch(
+          `${env.MUSIC_PLAYER_SERVER_URL}/song/feed`,
+          requestOptions,
+        );
+        const body: SongFeedResponse = await response.json();
+        if (body) {
+          console.log(body);
+          const newSongFeed = body.songs;
+          setSongFeed(newSongFeed);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     fetchArtistFeed().then();
     fetchPlaylistFeed().then();
     fetchAlbumFeed().then();
+    fetchSongFeed().then();
   }, []);
 
   const findImage = (artImageLink: string, defaultImageLink: string) => {
@@ -195,11 +222,42 @@ function Feed() {
     }
   };
 
+  const renderSongFeed = () => {
+    if (songFeed) {
+      const defaultSongImage = "/images/song-placeholder.webp";
+      return (
+        <div className="feedRow">
+          <span>Recommended Songs</span>
+          <div className="feedItemsContainer">
+            {songFeed.map((feedItem, index) => {
+              return (
+                <div
+                  className="feedItem"
+                  key={index}
+                  style={defaultBackgroundStyle}
+                >
+                  <div className="cardImage">
+                    <img
+                      src={findImage(feedItem.art, defaultSongImage)}
+                      alt="song"
+                    />
+                  </div>
+                  <span>{feedItem.name}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="feedContainer">
       {renderArtistFeed()}
       {renderPlaylistFeed()}
       {renderAlbumFeed()}
+      {renderSongFeed()}
     </div>
   );
 }

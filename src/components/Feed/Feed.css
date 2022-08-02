@@ -1,7 +1,7 @@
 .feedContainer {
     display: flex;
     flex-direction: column;
-    background: gray;
+    background: #383838;
     height: 94%;
 }
 
