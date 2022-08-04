@@ -1,6 +1,5 @@
 import "./Feed.css";
 import { useEffect, useState } from "react";
-import env from "react-dotenv";
 import {
   Playlist,
   PlaylistFeedResponse,
@@ -8,16 +7,22 @@ import {
 import { Album, AlbumFeedResponse } from "../../responses/AlbumFeedResponse";
 import { Artist, ArtistFeedResponse } from "../../responses/ArtistFeedResponse";
 import { Song, SongFeedResponse } from "../../responses/SongFeedResponse";
+import { Link } from "react-router-dom";
 
 function Feed() {
   const [artistFeed, setArtistFeed] = useState<Artist[]>([]);
   const [playlistFeed, setPlaylistFeed] = useState<Playlist[]>([]);
   const [albumFeed, setAlbumFeed] = useState<Album[]>([]);
   const [songFeed, setSongFeed] = useState<Song[]>([]);
+  const { REACT_APP_MUSIC_PLAYER_SERVER_URL } = process.env;
 
   const defaultBackgroundImage = "/images/background-gradient.webp";
   const defaultBackgroundStyle = {
     backgroundImage: `url(${defaultBackgroundImage})`,
+  };
+  const linkOverrideStyle = {
+    textDecoration: "none",
+    color: "inherit",
   };
 
   useEffect(() => {
@@ -31,7 +36,7 @@ function Feed() {
 
       try {
         const response = await fetch(
-          `${env.MUSIC_PLAYER_SERVER_URL}/artist/feed`,
+          `${REACT_APP_MUSIC_PLAYER_SERVER_URL}/artist/feed`,
           requestOptions,
         );
         const body: ArtistFeedResponse = await response.json();
@@ -55,7 +60,7 @@ function Feed() {
 
       try {
         const response = await fetch(
-          `${env.MUSIC_PLAYER_SERVER_URL}/playlist/feed`,
+          `${REACT_APP_MUSIC_PLAYER_SERVER_URL}/playlist/feed`,
           requestOptions,
         );
         const body: PlaylistFeedResponse = await response.json();
@@ -79,7 +84,7 @@ function Feed() {
 
       try {
         const response = await fetch(
-          `${env.MUSIC_PLAYER_SERVER_URL}/album/feed`,
+          `${REACT_APP_MUSIC_PLAYER_SERVER_URL}/album/feed`,
           requestOptions,
         );
         const body: AlbumFeedResponse = await response.json();
@@ -103,7 +108,7 @@ function Feed() {
 
       try {
         const response = await fetch(
-          `${env.MUSIC_PLAYER_SERVER_URL}/song/feed`,
+          `${REACT_APP_MUSIC_PLAYER_SERVER_URL}/song/feed`,
           requestOptions,
         );
         const body: SongFeedResponse = await response.json();
@@ -231,19 +236,21 @@ function Feed() {
           <div className="feedItemsContainer">
             {songFeed.map((feedItem, index) => {
               return (
-                <div
-                  className="feedItem"
+                <Link
+                  to={`/song/${feedItem.id}`}
                   key={index}
-                  style={defaultBackgroundStyle}
+                  style={linkOverrideStyle}
                 >
-                  <div className="cardImage">
-                    <img
-                      src={findImage(feedItem.art, defaultSongImage)}
-                      alt="song"
-                    />
+                  <div className="feedItem" style={defaultBackgroundStyle}>
+                    <div className="cardImage">
+                      <img
+                        src={findImage(feedItem.art, defaultSongImage)}
+                        alt="song"
+                      />
+                    </div>
+                    <span>{feedItem.name}</span>
                   </div>
-                  <span>{feedItem.name}</span>
-                </div>
+                </Link>
               );
             })}
           </div>

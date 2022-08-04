@@ -1,11 +1,11 @@
 import "../Home/Home.css";
 import { TopBar } from "../TopBar";
 import { useState } from "react";
-import { LoginContext } from "./LoginContext";
+import { LoginContext } from "../Home/LoginContext";
 import { Feed } from "../Feed";
 import { CurrentPage } from "../TopBar/TopBar";
 
-function Home() {
+function Collection() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   const logInUser = (loggedIn: boolean): void => {
@@ -29,4 +29,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Collection;
