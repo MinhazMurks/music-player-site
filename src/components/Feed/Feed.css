@@ -3,6 +3,7 @@
     flex-direction: column;
     background: #383838;
     height: 94%;
+    color: #00BAFF;
 }
 
 .feedRow {
@@ -26,6 +27,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: black;
     background: #d5d5d5;
 }
 
@@ -37,24 +39,4 @@
 .cardImage img{
     width: 100%;
     height: auto;
-}
-
-.playlistFeedContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
-}
-
-.playlistFeedItem {
-}
-
-.albumFeedContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
-}
-
-.albumFeedItem {
 }
