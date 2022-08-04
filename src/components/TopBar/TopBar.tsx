@@ -1,22 +1,63 @@
 import "./TopBar.css";
 import { SearchBar } from "../SearchBar";
 import { Login } from "../Login";
+import { Link } from "react-router-dom";
 
 type TopBarProps = {
-  selected?: String;
+  currentPage?: CurrentPage;
+  searchTerm?: string;
+  focusSearchBar?: boolean;
 };
 
-function TopBar(props: TopBarProps) {
-  const currentPage = props.selected;
+export enum CurrentPage {
+  Home = 0,
+  Collection = 1,
+  Discover = 2,
+  Search = 3,
+}
 
-  console.log(currentPage);
+function TopBar(props: TopBarProps) {
+  const linksList = ["Home", "Collection", "Discover"];
+
+  const renderLinks = () => {
+    return (
+      <div className="navCenter">
+        {linksList.map((link, index) => {
+          if (props.currentPage === index) {
+            return (
+              <Link
+                className="selected"
+                to={`/${link.toLowerCase()}`}
+                key={index}
+              >
+                {link}
+              </Link>
+            );
+          } else {
+            return (
+              <Link
+                className="unselected"
+                to={`/${link.toLowerCase()}`}
+                key={index}
+              >
+                {link}
+              </Link>
+            );
+          }
+        })}
+      </div>
+    );
+  };
+
   return (
     <div className="topBar">
       <div></div>
       <div className="navCenter">
-        <SearchBar />
-        <span>Home</span>
-        <span>Collection</span>
+        <SearchBar
+          focusSearchBar={props.focusSearchBar}
+          searchTerm={props.searchTerm}
+        />
+        {renderLinks()}
       </div>
       <Login />
     </div>

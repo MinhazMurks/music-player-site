@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Song } from "./components/Song";
+import Search from "./components/Search/Search";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -12,7 +13,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
+      <Route path="/search/:searchValue" element={<Search />}></Route>
+      <Route path="/search/" element={<Search />}></Route>
       <Route path="/song/:id" element={<Song />}></Route>
+      <Route path="/home" element={<Home />} />
       <Route path="/" element={<Home />} />
     </Routes>
   </BrowserRouter>,
