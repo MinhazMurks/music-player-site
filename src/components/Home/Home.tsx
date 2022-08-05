@@ -1,9 +1,8 @@
 import "../Home/Home.css";
-import { TopBar } from "../TopBar";
+import { CurrentPage, TopBar } from "../TopBar";
 import { useState } from "react";
 import { LoginContext } from "./LoginContext";
 import { Feed } from "../Feed";
-import { CurrentPage } from "../TopBar/TopBar";
 
 function Home() {
   const [loggedIn, setLoggedIn] = useState(false);

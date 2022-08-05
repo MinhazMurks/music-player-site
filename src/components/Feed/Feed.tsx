@@ -41,7 +41,6 @@ function Feed() {
         );
         const body: ArtistFeedResponse = await response.json();
         if (body) {
-          console.log(body);
           const newArtistFeed = body.artists;
           setArtistFeed(newArtistFeed);
         }
@@ -65,7 +64,6 @@ function Feed() {
         );
         const body: PlaylistFeedResponse = await response.json();
         if (body) {
-          console.log(body);
           const newPlaylistFeed = body.playlists;
           setPlaylistFeed(newPlaylistFeed);
         }
@@ -89,7 +87,6 @@ function Feed() {
         );
         const body: AlbumFeedResponse = await response.json();
         if (body) {
-          console.log(body);
           const newAlbumFeed = body.albums;
           setAlbumFeed(newAlbumFeed);
         }
@@ -113,7 +110,6 @@ function Feed() {
         );
         const body: SongFeedResponse = await response.json();
         if (body) {
-          console.log(body);
           const newSongFeed = body.songs;
           setSongFeed(newSongFeed);
         }
@@ -130,10 +126,8 @@ function Feed() {
 
   const findImage = (artImageLink: string, defaultImageLink: string) => {
     if (artImageLink && artImageLink !== "") {
-      console.log("RETURNING OTHER");
       return artImageLink;
     }
-    console.log("RETURNING DEFAULT");
     return defaultImageLink;
   };
 

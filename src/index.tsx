@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Song } from "./components/Song";
 import Search from "./components/Search/Search";
+import { Collection } from "./components/Collection";
+import { Discover } from "./components/Discover";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -16,6 +18,8 @@ root.render(
       <Route path="/search/:searchValue" element={<Search />}></Route>
       <Route path="/search/" element={<Search />}></Route>
       <Route path="/song/:id" element={<Song />}></Route>
+      <Route path="/collection" element={<Collection />} />
+      <Route path="/discover" element={<Discover />} />
       <Route path="/home" element={<Home />} />
       <Route path="/" element={<Home />} />
     </Routes>
