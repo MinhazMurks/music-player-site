@@ -133,7 +133,7 @@ function Feed() {
 
   const renderArtistFeed = () => {
     if (artistFeed) {
-      const defaultArtistImage = "/images/artist-placeholder.webp";
+      const defaultArtistImage = "/images/placeholders/artist-placeholder.webp";
       return (
         <div className="feedRow">
           <span>Recommended Artists</span>
@@ -163,7 +163,8 @@ function Feed() {
 
   const renderPlaylistFeed = () => {
     if (playlistFeed) {
-      const defaultPlaylistImage = "/images/playlist-placeholder.webp";
+      const defaultPlaylistImage =
+        "/images/placeholders/playlist-placeholder.webp";
       return (
         <div className="feedRow">
           <span>Recommended Playlists</span>
@@ -193,7 +194,7 @@ function Feed() {
 
   const renderAlbumFeed = () => {
     if (albumFeed) {
-      const defaultAlbumImage = "/images/album-placeholder.webp";
+      const defaultAlbumImage = "/images/placeholders/album-placeholder.webp";
       return (
         <div className="feedRow">
           <span>Recommended Albums</span>
@@ -223,7 +224,7 @@ function Feed() {
 
   const renderSongFeed = () => {
     if (songFeed) {
-      const defaultSongImage = "/images/song-placeholder.webp";
+      const defaultSongImage = "/images/placeholders/song-placeholder.webp";
       return (
         <div className="feedRow">
           <span>Recommended Songs</span>

@@ -1,0 +1,36 @@
+.songBody {
+    height: 94vh;
+    background: #383838;
+    display: flex;
+    row-gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.songCard {
+    background: gray;
+    height: 30vw;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+}
+
+.songImage {
+    width: 27vw;
+    display: flex;
+}
+
+.songImage img {
+    width: 100%;
+    height: auto;
+}
+
+.songControls {
+    width: 30vw;
+    height: 10vh;
+    background: gray;
+}
