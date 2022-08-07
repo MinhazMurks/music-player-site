@@ -1,43 +1,43 @@
 .feedContainer {
-    display: flex;
-    flex-direction: column;
-    background: #383838;
-    height: 94vh;
-    color: #00BAFF;
+  display: flex;
+  flex-direction: column;
+  background: #383838;
+  height: 94vh;
+  color: #00baff;
 }
 
 .feedRow {
-    padding: 10px;
+  padding: 10px;
 }
 
 .feedItemsContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .feedItem {
-    margin: 5px;
-    padding: 5px;
-    height: 200px;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: black;
-    background: #d5d5d5;
-    text-decoration: none;
+  margin: 5px;
+  padding: 5px;
+  height: 200px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  background: #d5d5d5;
+  text-decoration: none;
 }
 
 .cardImage {
-    width: 150px;
-    display: flex;
+  width: 150px;
+  display: flex;
 }
 
-.cardImage img{
-    width: 100%;
-    height: auto;
+.cardImage img {
+  width: 100%;
+  height: auto;
 }

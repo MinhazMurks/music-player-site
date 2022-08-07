@@ -1,0 +1,61 @@
+.songControlsContainer {
+  height: 6vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  background: #1a1a1a;
+}
+
+.artDisplayContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  color: white;
+}
+
+.artDisplay {
+  width: 6vh;
+  display: flex;
+}
+
+.artDisplay img {
+  width: 100%;
+  height: auto;
+}
+
+.sides {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.controlsContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+.control {
+  width: 4vh;
+  display: flex;
+}
+
+.control img {
+  width: 100%;
+  height: auto;
+}
+
+.smallControl {
+  width: 2vh;
+  display: flex;
+}
+
+.smallControl img {
+  width: 100%;
+  height: auto;
+}

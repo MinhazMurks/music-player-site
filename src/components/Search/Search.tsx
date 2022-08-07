@@ -1,5 +1,4 @@
-import { TopBar } from "../TopBar";
-import { CurrentPage } from "../TopBar/TopBar";
+import { CurrentPage, TopBar } from "../TopBar";
 import { useState } from "react";
 import { SearchTermContext } from "../TopBar/SearchTermContext";
 import { useParams } from "react-router-dom";
@@ -22,13 +21,11 @@ function Search() {
 
   return (
     <SearchTermContext.Provider value={searchTermProviderValue}>
-      <div>
-        <TopBar
-          focusSearchBar={true}
-          currentPage={CurrentPage.Search}
-          searchTerm={searchTerm}
-        ></TopBar>
-      </div>
+      <TopBar
+        focusSearchBar={true}
+        currentPage={CurrentPage.Search}
+        searchTerm={searchTerm}
+      ></TopBar>
     </SearchTermContext.Provider>
   );
 }

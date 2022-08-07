@@ -1,5 +1,12 @@
+.songContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
 .songBody {
-    height: 94vh;
+    height: 88vh;
     background: #383838;
     display: flex;
     row-gap: 20px;
@@ -9,7 +16,6 @@
 }
 
 .songCard {
-    background: gray;
     height: 30vw;
     width: 30vw;
     display: flex;
@@ -29,8 +35,13 @@
     height: auto;
 }
 
-.songControls {
+.songControlsContainer {
     width: 30vw;
     height: 10vh;
+}
+
+.songControls {
+    width: 100%;
+    height: auto;
     background: gray;
 }

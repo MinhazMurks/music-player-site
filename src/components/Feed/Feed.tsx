@@ -16,7 +16,8 @@ function Feed() {
   const [songFeed, setSongFeed] = useState<Song[]>([]);
   const { REACT_APP_MUSIC_PLAYER_SERVER_URL } = process.env;
 
-  const defaultBackgroundImage = "/images/background-gradient.webp";
+  const defaultBackgroundImage =
+    "/images/placeholders/background-gradient.webp";
   const defaultBackgroundStyle = {
     backgroundImage: `url(${defaultBackgroundImage})`,
   };

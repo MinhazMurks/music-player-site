@@ -1,12 +1,10 @@
-import "../Home/Home.css";
+import "../Collection/Collection.css";
 import { CurrentPage, TopBar } from "../TopBar";
 
 function Collection() {
   return (
-    <div>
-      <div className="homeContainer">
-        <TopBar currentPage={CurrentPage.Collection}></TopBar>
-      </div>
+    <div className="collectionContainer">
+      <TopBar currentPage={CurrentPage.Collection}></TopBar>
     </div>
   );
 }

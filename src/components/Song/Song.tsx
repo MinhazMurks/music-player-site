@@ -3,11 +3,17 @@ import { useParams } from "react-router-dom";
 import { TopBar } from "../TopBar";
 import { useEffect, useState } from "react";
 import { Song as SongResponse } from "../../responses/SongFeedResponse";
+import { SongControls } from "../SongControls";
 
 function Song() {
   const [currentSong, setCurrentSong] = useState<SongResponse>();
   const { id } = useParams();
   const { REACT_APP_MUSIC_PLAYER_SERVER_URL } = process.env;
+  const defaultBackgroundImage =
+    "/images/placeholders/background-gradient.webp";
+  const defaultBackgroundStyle = {
+    backgroundImage: `url(${defaultBackgroundImage})`,
+  };
 
   useEffect(() => {
     const getCurrentSong = async () => {
@@ -40,8 +46,7 @@ function Song() {
       const defaultSongImage = "/images/placeholders/song-placeholder.webp";
 
       return (
-        <div className="songCard">
-          <span>{currentSong.name}</span>
+        <div className="songCard" style={defaultBackgroundStyle}>
           <div className="songImage">
             <img
               src={findImage(currentSong.art, defaultSongImage)}
@@ -61,12 +66,15 @@ function Song() {
   };
 
   return (
-    <div>
+    <div className="songContainer">
       <TopBar></TopBar>
       <div className="songBody">
         {renderCurrentSong()}
-        <div className="songControls"></div>
+        <div className="songControlsContainer">
+          <div className="songControls"></div>
+        </div>
       </div>
+      <SongControls currentSong={currentSong}></SongControls>
     </div>
   );
 }

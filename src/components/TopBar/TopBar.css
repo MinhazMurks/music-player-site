@@ -2,6 +2,7 @@
   display: flex;
   background: #1a1a1a;
   height: 6vh;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
 }
@@ -11,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
   column-gap: 1em;
-  color: #00BAFF;
+  color: #00baff;
 }
 
 .selected {

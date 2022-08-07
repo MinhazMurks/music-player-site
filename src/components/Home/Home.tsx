@@ -17,9 +17,9 @@ function Home() {
   };
 
   return (
-    <div>
+    <div className="homeContainer">
       <LoginContext.Provider value={logInProviderValue}>
-        <div className="homeContainer">
+        <div>
           <TopBar currentPage={CurrentPage.Home}></TopBar>
           <Feed></Feed>
         </div>
