@@ -7,7 +7,7 @@ import { SongControls } from "../SongControls";
 
 function Song() {
   const [currentSong, setCurrentSong] = useState<SongResponse>();
-  const { id } = useParams();
+  const { songUUID } = useParams();
   const { REACT_APP_MUSIC_PLAYER_SERVER_URL } = process.env;
   const defaultBackgroundImage =
     "/images/placeholders/background-gradient.webp";
@@ -26,7 +26,7 @@ function Song() {
 
       try {
         const response = await fetch(
-          `${REACT_APP_MUSIC_PLAYER_SERVER_URL}/song/${id}`,
+          `${REACT_APP_MUSIC_PLAYER_SERVER_URL}/song/${songUUID}`,
           requestOptions,
         );
         const body: SongResponse = await response.json();

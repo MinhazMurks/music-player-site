@@ -8,6 +8,9 @@ import { Song } from "./components/Song";
 import Search from "./components/Search/Search";
 import { Collection } from "./components/Collection";
 import { Discover } from "./components/Discover";
+import Playlist from "./components/Playlist/Playlist";
+import Album from "./components/Album/Album";
+import Artist from "./components/Artist/Artist";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -18,7 +21,10 @@ root.render(
       <Routes>
         <Route path="/search/:searchValue" element={<Search />}></Route>
         <Route path="/search/" element={<Search />}></Route>
-        <Route path="/song/:id" element={<Song />}></Route>
+        <Route path="/song/:songUUID" element={<Song />}></Route>
+        <Route path="/album/:albumUUID" element={<Album />}></Route>
+        <Route path="/playlist/:playlistUUID" element={<Playlist />}></Route>
+        <Route path="/artist/:artistUUID" element={<Artist />}></Route>
         <Route path="/collection" element={<Collection />} />
         <Route path="/discover" element={<Discover />} />
         <Route path="/home" element={<Home />} />

@@ -5,7 +5,7 @@ function Playlist() {
   return (
     <div className="playlistPageContainer">
       <TopBar currentPage={CurrentPage.Discover}></TopBar>
-      <div></div>
+      <div className="playlistPageBody"></div>
     </div>
   );
 }
