@@ -7,4 +7,32 @@
 .playlistPageBody {
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 6vh;
+}
+
+.playlistHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.playlistHeaderInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #b3b3b3;
+}
+
+.playlistTitle {
+  font-size: 3em;
+}
+
+.playlistContent {
+
 }

@@ -1,7 +1,7 @@
 import "./Feed.css";
 import { useEffect, useState } from "react";
 import {
-  Playlist,
+  PlaylistResponse,
   PlaylistFeedResponse,
 } from "../../responses/PlaylistFeedResponse";
 import { Album, AlbumFeedResponse } from "../../responses/AlbumFeedResponse";
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 function Feed() {
   const [artistFeed, setArtistFeed] = useState<Artist[]>([]);
-  const [playlistFeed, setPlaylistFeed] = useState<Playlist[]>([]);
+  const [playlistFeed, setPlaylistFeed] = useState<PlaylistResponse[]>([]);
   const [albumFeed, setAlbumFeed] = useState<Album[]>([]);
   const [songFeed, setSongFeed] = useState<Song[]>([]);
   const { REACT_APP_MUSIC_PLAYER_SERVER_URL } = process.env;
@@ -172,19 +172,21 @@ function Feed() {
           <div className="feedItemsContainer">
             {playlistFeed.map((feedItem, index) => {
               return (
-                <div
-                  className="feedItem"
+                <Link
+                  to={`/playlist/${feedItem.id}`}
                   key={index}
-                  style={defaultBackgroundStyle}
+                  style={linkOverrideStyle}
                 >
-                  <div className="cardImage">
-                    <img
-                      src={findImage(feedItem.art, defaultPlaylistImage)}
-                      alt="playlist"
-                    />
+                  <div className="feedItem" style={defaultBackgroundStyle}>
+                    <div className="cardImage">
+                      <img
+                        src={findImage(feedItem.art, defaultPlaylistImage)}
+                        alt="playlist"
+                      />
+                    </div>
+                    <span>{feedItem.name}</span>
                   </div>
-                  <span>{feedItem.name}</span>
-                </div>
+                </Link>
               );
             })}
           </div>

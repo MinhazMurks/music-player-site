@@ -1,8 +1,8 @@
 export type PlaylistFeedResponse = {
-  playlists: Playlist[];
+  playlists: PlaylistResponse[];
 };
 
-export type Playlist = {
+export type PlaylistResponse = {
   id: string;
   creatorUUID: string;
   name: string;

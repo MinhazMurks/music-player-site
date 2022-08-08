@@ -1,0 +1,9 @@
+.squareImage {
+    width: 27vw;
+    display: flex;
+}
+
+.squareImage img {
+    width: 100%;
+    height: auto;
+}
