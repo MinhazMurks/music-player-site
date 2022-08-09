@@ -1,8 +1,8 @@
 export type ArtistFeedResponse = {
-  artists: Artist[];
+  artists: ArtistResponse[];
 };
 
-export type Artist = {
+export type ArtistResponse = {
   id: string;
   musicUserUUID: string;
   name: string;

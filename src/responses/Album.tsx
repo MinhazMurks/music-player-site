@@ -1,4 +1,4 @@
-import { Artist } from "./ArtistFeedResponse";
+import { ArtistResponse } from "./Artist";
 
 export type AlbumFeedResponse = {
   albums: Album[];
@@ -7,7 +7,7 @@ export type AlbumFeedResponse = {
 export type Album = {
   id: string;
   artistUUID: string;
-  artist: Artist | null;
+  artist: ArtistResponse | null;
   name: string;
   art: string;
   tags: string[];

@@ -3,17 +3,17 @@ import { useEffect, useState } from "react";
 import {
   PlaylistResponse,
   PlaylistFeedResponse,
-} from "../../responses/PlaylistFeedResponse";
-import { Album, AlbumFeedResponse } from "../../responses/AlbumFeedResponse";
-import { Artist, ArtistFeedResponse } from "../../responses/ArtistFeedResponse";
-import { Song, SongFeedResponse } from "../../responses/SongFeedResponse";
+} from "../../responses/Playlist";
+import { Album, AlbumFeedResponse } from "../../responses/Album";
+import { ArtistResponse, ArtistFeedResponse } from "../../responses/Artist";
+import { SongResponse, SongFeedResponse } from "../../responses/Song";
 import { Link } from "react-router-dom";
 
 function Feed() {
-  const [artistFeed, setArtistFeed] = useState<Artist[]>([]);
+  const [artistFeed, setArtistFeed] = useState<ArtistResponse[]>([]);
   const [playlistFeed, setPlaylistFeed] = useState<PlaylistResponse[]>([]);
   const [albumFeed, setAlbumFeed] = useState<Album[]>([]);
-  const [songFeed, setSongFeed] = useState<Song[]>([]);
+  const [songFeed, setSongFeed] = useState<SongResponse[]>([]);
   const { REACT_APP_MUSIC_PLAYER_SERVER_URL } = process.env;
 
   const defaultBackgroundImage =

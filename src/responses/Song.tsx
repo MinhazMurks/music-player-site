@@ -1,8 +1,8 @@
 export type SongFeedResponse = {
-  songs: Song[];
+  songs: SongResponse[];
 };
 
-export type Song = {
+export type SongResponse = {
   id: string;
   audioFile: string;
   name: string;

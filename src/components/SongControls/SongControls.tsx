@@ -1,5 +1,5 @@
 import "../SongControls/SongControls.css";
-import { Song as SongResponse } from "../../responses/SongFeedResponse";
+import { SongResponse as SongResponse } from "../../responses/Song";
 
 type SongControlsProps = {
   currentSong?: SongResponse;

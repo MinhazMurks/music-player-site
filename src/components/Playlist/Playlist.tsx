@@ -2,7 +2,7 @@ import "../Playlist/Playlist.css";
 import { TopBar } from "../TopBar";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { PlaylistResponse } from "../../responses/PlaylistFeedResponse";
+import { PlaylistResponse } from "../../responses/Playlist";
 import { ArtType, SquareImage } from "../SquareImage";
 
 function Playlist() {
