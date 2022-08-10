@@ -1,10 +1,6 @@
 import { MusicUserResponse } from "./MusicUserResponses";
 import { SongResponse } from "./SongResponses";
 
-export type PlaylistFeedResponse = {
-  playlists: PlaylistResponse[];
-};
-
 export type PlaylistFullResponse = {
   id: string;
   creator: MusicUserResponse;
@@ -20,4 +16,8 @@ export type PlaylistResponse = {
   name: string;
   art: string;
   tags: string[];
+};
+
+export type PlaylistFeedResponse = {
+  playlists: PlaylistResponse[];
 };

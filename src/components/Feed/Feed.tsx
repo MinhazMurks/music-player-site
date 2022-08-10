@@ -147,19 +147,25 @@ function Feed() {
           <div className="feedItemsContainer">
             {artistFeed.map((feedItem, index) => {
               return (
-                <div
-                  className="feedItem"
+                <Link
+                  to={`/artist/${feedItem.id}`}
                   key={index}
-                  style={defaultBackgroundStyle}
+                  style={linkOverrideStyle}
                 >
-                  <div className="cardImage">
-                    <img
-                      src={findImage(feedItem.portrait, defaultArtistImage)}
-                      alt="artist"
-                    />
+                  <div
+                    className="feedItem"
+                    key={index}
+                    style={defaultBackgroundStyle}
+                  >
+                    <div className="cardImage">
+                      <img
+                        src={findImage(feedItem.portrait, defaultArtistImage)}
+                        alt="artist"
+                      />
+                    </div>
+                    <span>{feedItem.name}</span>
                   </div>
-                  <span>{feedItem.name}</span>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -210,19 +216,21 @@ function Feed() {
           <div className="feedItemsContainer">
             {albumFeed.map((feedItem, index) => {
               return (
-                <div
-                  className="feedItem"
+                <Link
+                  to={`/album/${feedItem.id}`}
                   key={index}
-                  style={defaultBackgroundStyle}
+                  style={linkOverrideStyle}
                 >
-                  <div className="cardImage">
-                    <img
-                      src={findImage(feedItem.art, defaultAlbumImage)}
-                      alt="album"
-                    />
+                  <div className="feedItem" style={defaultBackgroundStyle}>
+                    <div className="cardImage">
+                      <img
+                        src={findImage(feedItem.art, defaultAlbumImage)}
+                        alt="album"
+                      />
+                    </div>
+                    <span>{feedItem.name}</span>
                   </div>
-                  <span>{feedItem.name}</span>
-                </div>
+                </Link>
               );
             })}
           </div>

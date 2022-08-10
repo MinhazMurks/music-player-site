@@ -1,4 +1,5 @@
 import { ArtistResponse } from "./ArtistResponses";
+import { SongResponse } from "./SongResponses";
 
 export type AlbumFullResponse = {
   id: string;
@@ -6,7 +7,7 @@ export type AlbumFullResponse = {
   name: string;
   art: string;
   tags: string[];
-  songs: AlbumSongResponse[];
+  songs: SongResponse[];
 };
 
 export type AlbumResponse = {
@@ -15,12 +16,6 @@ export type AlbumResponse = {
   name: string;
   art: string;
   tags: string[];
-};
-
-export type AlbumSongResponse = {
-  id: string;
-  albumUuid: string;
-  songUuid: string;
 };
 
 export type AlbumFeedResponse = {
