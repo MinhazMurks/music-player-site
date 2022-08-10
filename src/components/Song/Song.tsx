@@ -2,7 +2,7 @@ import "../Song/Song.css";
 import { useParams } from "react-router-dom";
 import { TopBar } from "../TopBar";
 import { useEffect, useState } from "react";
-import { SongResponse as SongResponse } from "../../responses/Song";
+import { SongResponse as SongResponse } from "../../responses/SongResponses";
 import { SongControls } from "../SongControls";
 
 function Song() {

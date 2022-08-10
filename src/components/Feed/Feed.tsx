@@ -1,18 +1,24 @@
 import "./Feed.css";
 import { useEffect, useState } from "react";
 import {
-  PlaylistResponse,
   PlaylistFeedResponse,
-} from "../../responses/Playlist";
-import { Album, AlbumFeedResponse } from "../../responses/Album";
-import { ArtistResponse, ArtistFeedResponse } from "../../responses/Artist";
-import { SongResponse, SongFeedResponse } from "../../responses/Song";
+  PlaylistResponse,
+} from "../../responses/PlaylistResponses";
+import {
+  AlbumFeedResponse,
+  AlbumResponse,
+} from "../../responses/AlbumResponses";
+import {
+  ArtistFeedResponse,
+  ArtistResponse,
+} from "../../responses/ArtistResponses";
+import { SongFeedResponse, SongResponse } from "../../responses/SongResponses";
 import { Link } from "react-router-dom";
 
 function Feed() {
   const [artistFeed, setArtistFeed] = useState<ArtistResponse[]>([]);
   const [playlistFeed, setPlaylistFeed] = useState<PlaylistResponse[]>([]);
-  const [albumFeed, setAlbumFeed] = useState<Album[]>([]);
+  const [albumFeed, setAlbumFeed] = useState<AlbumResponse[]>([]);
   const [songFeed, setSongFeed] = useState<SongResponse[]>([]);
   const { REACT_APP_MUSIC_PLAYER_SERVER_URL } = process.env;
 
@@ -148,7 +154,7 @@ function Feed() {
                 >
                   <div className="cardImage">
                     <img
-                      src={findImage(feedItem.art, defaultArtistImage)}
+                      src={findImage(feedItem.portrait, defaultArtistImage)}
                       alt="artist"
                     />
                   </div>

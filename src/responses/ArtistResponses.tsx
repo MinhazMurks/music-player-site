@@ -4,7 +4,6 @@ export type ArtistFeedResponse = {
 
 export type ArtistResponse = {
   id: string;
-  musicUserUUID: string;
   name: string;
-  art: string;
+  portrait: string;
 };

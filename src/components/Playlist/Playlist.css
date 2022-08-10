@@ -1,38 +1,58 @@
 .playlistPageContainer {
-  height: 100vh;
-  width: 100%;
-  margin: 0;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
 }
 
 .playlistPageBody {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 6vh;
+    width: 100%;
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 6vh;
 }
 
 .playlistHeader {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  column-gap: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
 }
 
 .playlistHeaderInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  color: #b3b3b3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #b3b3b3;
 }
 
 .playlistTitle {
-  font-size: 3em;
+    font-size: 3em;
 }
 
 .playlistContent {
+    width: 60%;
+    height: 100%;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 1vh;
+}
 
+.playlistSong {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.playlistSongInfo {
+    flex: 0 0 33.33%;
+    padding: 1em;
+    background: #525252;
 }

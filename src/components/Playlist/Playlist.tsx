@@ -2,11 +2,12 @@ import "../Playlist/Playlist.css";
 import { TopBar } from "../TopBar";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { PlaylistResponse } from "../../responses/Playlist";
+import { PlaylistFullResponse } from "../../responses/PlaylistResponses";
 import { ArtType, SquareImage } from "../SquareImage";
 
 function Playlist() {
-  const [currentPlaylist, setCurrentPlaylist] = useState<PlaylistResponse>();
+  const [currentPlaylist, setCurrentPlaylist] =
+    useState<PlaylistFullResponse>();
   const { playlistUUID } = useParams();
   const { REACT_APP_MUSIC_PLAYER_SERVER_URL } = process.env;
 
@@ -24,7 +25,7 @@ function Playlist() {
           `${REACT_APP_MUSIC_PLAYER_SERVER_URL}/playlist/${playlistUUID}`,
           requestOptions,
         );
-        const body: PlaylistResponse = await response.json();
+        const body: PlaylistFullResponse = await response.json();
         if (body) {
           setCurrentPlaylist(body);
         }
@@ -48,10 +49,20 @@ function Playlist() {
           ></SquareImage>
           <div className="playlistHeaderInfo">
             <span className="playlistTitle">{currentPlaylist?.name}</span>
-            <span>Artist</span>
+            <span>{currentPlaylist?.creator.username}</span>
           </div>
         </div>
-        <div className="playlistContent"></div>
+        <div className="playlistContent">
+          {currentPlaylist?.songs.map((song, index) => {
+            return (
+              <div key={index} className="playlistSong">
+                <div className="playlistSongInfo">{song.name}</div>
+                <div className="playlistSongInfo">{song.name}</div>
+                <div className="playlistSongInfo">{song.name}</div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
