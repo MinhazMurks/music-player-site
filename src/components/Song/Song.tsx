@@ -1,12 +1,13 @@
-import "../Song/Song.css";
+import "./Song.css";
 import { useParams } from "react-router-dom";
 import { TopBar } from "../TopBar";
 import { useEffect, useState } from "react";
-import { SongResponse as SongResponse } from "../../responses/SongResponses";
+import { SongResponse } from "../../responses/SongResponses";
 import { SongControls } from "../SongControls";
 
 function Song() {
   const [currentSong, setCurrentSong] = useState<SongResponse>();
+  const [currentSongAudio, setCurrentAudio] = useState<ArrayBuffer>();
   const { songUUID } = useParams();
   const { REACT_APP_MUSIC_PLAYER_SERVER_URL } = process.env;
   const defaultBackgroundImage =
@@ -16,7 +17,7 @@ function Song() {
   };
 
   useEffect(() => {
-    const getCurrentSong = async () => {
+    const getCurrentSongData = async () => {
       const requestOptions: RequestInit = {
         method: "GET",
         headers: {
@@ -26,7 +27,7 @@ function Song() {
 
       try {
         const response = await fetch(
-          `${REACT_APP_MUSIC_PLAYER_SERVER_URL}/song/${songUUID}`,
+          `${REACT_APP_MUSIC_PLAYER_SERVER_URL}/song/data/${songUUID}`,
           requestOptions,
         );
         const body: SongResponse = await response.json();
@@ -38,7 +39,38 @@ function Song() {
       }
     };
 
-    getCurrentSong().then();
+    const getCurrentSongAudio = async () => {
+      const requestOptions: RequestInit = {
+        method: "GET",
+        headers: {
+          "Content-Type": "audio/mpeg",
+        },
+      };
+
+      try {
+        const response = await fetch(
+          `${REACT_APP_MUSIC_PLAYER_SERVER_URL}/song/${songUUID}`,
+          requestOptions,
+        );
+        if (response.body) {
+          const reader = response.body.getReader();
+          console.log(currentSongAudio);
+
+          reader.read().then(async function processAudio({ done, value }) {
+            if (done) {
+              console.log("done");
+            } else if (value.buffer) {
+              setCurrentAudio(value.buffer);
+            }
+          });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getCurrentSongData().then();
+    getCurrentSongAudio().then();
   }, []);
 
   const renderCurrentSong = () => {
